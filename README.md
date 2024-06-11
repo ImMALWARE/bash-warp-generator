@@ -1,4 +1,4 @@
-# Сгенерируйте конфиг WireGuard для Cloudflare WARP за минуту
+# Сгенерируйте конфиг Cloudflare WARP для WireGuard за минуту
 1. Заходим сюда https://shell.cloud.google.com/
 2. Ставим галочку и идём дальше
 ![image](https://github.com/ImMALWARE/bash-warp-wireguard-generator/assets/53017160/d3eceb2a-4c99-48cd-bcd8-0258b726aa08)

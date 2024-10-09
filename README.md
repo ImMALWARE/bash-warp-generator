@@ -1,4 +1,5 @@
 # Сгенерируйте конфиг Cloudflare WARP для AmneziaWG
+[![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/aElDi/bash-warp-generator)
 1. Заходим сюда https://shell.cloud.google.com/
 2. Ставим галочку и идём дальше
 ![image](https://github.com/ImMALWARE/bash-warp-generator/assets/53017160/d3eceb2a-4c99-48cd-bcd8-0258b726aa08)

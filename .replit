@@ -1,0 +1,9 @@
+entrypoint = "warp_generator.sh"
+modules = ["bash"]
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["bash", "warp_generator.sh"]
+deploymentTarget = "cloudrun"

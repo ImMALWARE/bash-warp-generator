@@ -1,9 +1,10 @@
 #!/bin/bash
 
 clear
-mkdir -p ~/.cloudshell && touch ~/.cloudshell/no-apt-get-warning
+mkdir -p ~/.cloudshell && touch ~/.cloudshell/no-apt-get-warning # Для Google Cloud Shell, но лучше там не выполнять
 echo "Установка зависимостей..."
-sudo apt-get update -y --fix-missing && sudo apt-get install wireguard-tools jq -y --fix-missing
+apt update -y && apt install sudo -y # Для Aeza Terminator, там sudo не установлен по умолчанию
+sudo apt-get update -y --fix-missing && sudo apt-get install wireguard-tools jq -y --fix-missing # Update второй раз, если sudo установлен и обязателен (в строке выше не сработал)
 
 priv="${1:-$(wg genkey)}"
 pub="${2:-$(echo "${priv}" | wg pubkey)}"
@@ -28,8 +29,8 @@ PrivateKey = ${priv}
 S1 = 0
 S2 = 0
 Jc = 120
-Jmin = 23
-Jmax = 911
+Jmin = 40
+Jmax = 70
 H1 = 1
 H2 = 2
 H3 = 3

@@ -25,7 +25,7 @@ clear
 read -p "Вы будете использовать конфиг на iOS? Если да, введите + и нажмите Enter. Если нет, просто нажмите Enter: " user_input;
 if [[ "$user_input" =~ \+ ]]; then
   allowed_ips="0.0.0.0/0, ::/0"
-fi
+if
 
 conf=$(cat <<-EOM
 [Interface]

@@ -4,7 +4,7 @@ clear
 mkdir -p ~/.cloudshell && touch ~/.cloudshell/no-apt-get-warning # Для Google Cloud Shell, но лучше там не выполнять
 echo "Установка зависимостей..."
 apt update -y && apt install sudo -y # Для Aeza Terminator, там sudo не установлен по умолчанию
-sudo apt-get update -y --fix-missing && sudo apt-get install wireguard-tools jq -y --fix-missing # Update второй раз, если sudo установлен и обязателен (в строке выше не сработал)
+sudo apt-get update -y --fix-missing && sudo apt-get install wireguard-tools jq wget -y --fix-missing # Update второй раз, если sudo установлен и обязателен (в строке выше не сработал)
 
 priv="${1:-$(wg genkey)}"
 pub="${2:-$(echo "${priv}" | wg pubkey)}"
@@ -20,6 +20,12 @@ peer_pub=$(echo "$response" | jq -r '.result.config.peers[0].public_key')
 peer_endpoint=$(echo "$response" | jq -r '.result.config.peers[0].endpoint.host')
 client_ipv4=$(echo "$response" | jq -r '.result.config.interface.addresses.v4')
 client_ipv6=$(echo "$response" | jq -r '.result.config.interface.addresses.v6')
+allowed_ips="0.0.0.0/0, 128.0.0.0/0, ::/0, 8000::/0"
+clear
+read -p "Вы будете использовать конфиг на iOS? Если да, введите + и нажмите Enter. Если нет, просто нажмите Enter: " user_input;
+if [[ "$user_input" =~ \+ ]]; then
+  allowed_ips="0.0.0.0/0, ::/0"
+fi
 
 conf=$(cat <<-EOM
 [Interface]
@@ -38,7 +44,7 @@ DNS = 1.1.1.1, 2606:4700:4700::1111, 1.0.0.1, 2606:4700:4700::1001
 
 [Peer]
 PublicKey = ${peer_pub}
-AllowedIPs = 0.0.0.0/0, 128.0.0.0/0, ::/0, 8000::/0
+AllowedIPs = ${allowed_ips}
 Endpoint = ${peer_endpoint}
 EOM
 )

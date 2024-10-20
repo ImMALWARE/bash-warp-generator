@@ -22,6 +22,9 @@ client_ipv4=$(echo "$response" | jq -r '.result.config.interface.addresses.v4')
 client_ipv6=$(echo "$response" | jq -r '.result.config.interface.addresses.v6')
 allowed_ips="0.0.0.0/0, 128.0.0.0/0, ::/0, 8000::/0"
 clear
+echo "Если у вас ошибка при генерации или при импорте конфига, значит вы следуете неактуальному гайду! Актуальный гайд тут: https://t.me/immalware/1211"
+echo "НЕ ИСПОЛЬЗУЙТЕ GOOGLE CLOUD SHELL ДЛЯ ГЕНЕРАЦИИ! Если вы сейчас в Google Cloud Shell, прочитайте актуальный гайд!"
+echo -e "\n"
 read -p "Вы будете использовать конфиг на iOS? Если да, введите + и нажмите Enter. Если нет, просто нажмите Enter: " user_input;
 if [[ "$user_input" =~ \+ ]]; then
   allowed_ips="0.0.0.0/0, ::/0"

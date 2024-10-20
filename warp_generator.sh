@@ -25,7 +25,7 @@ peer_endpoint=$(echo "$response" | jq -r '.result.config.peers[0].endpoint.host'
 client_ipv4=$(echo "$response" | jq -r '.result.config.interface.addresses.v4')
 client_ipv6=$(echo "$response" | jq -r '.result.config.interface.addresses.v6')
 allowed_ips="0.0.0.0/0, 128.0.0.0/0, ::/0, 8000::/0"
-read -p "Вы будете использовать конфиг на iOS? Если да, введите + и нажмите Enter. Если нет, просто нажмите Enter: " user_input;
+read -p "Вы будете использовать конфиг на iOS/Android? Если да, введите + и нажмите Enter. Если нет, просто нажмите Enter: " user_input;
 if [[ "$user_input" =~ \+ ]]; then
   allowed_ips="0.0.0.0/0, ::/0"
 fi

@@ -11,18 +11,7 @@
 bash <(wget -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/warp_generator.sh)
 ```
 4. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaWG!👍
-## Вариант 2: GitHub Codespaces
-1. Заходим на https://github.com/codespaces (нужен аккаунт GitHub)
-2. **Use this template**: \
-![Blank](https://i.imgur.com/NzHCrZO.png)
-3. Если внизу не открылся терминал, нажимаем **Терминал -> Создать терминал** (**Terminal -> New Terminal**) \
-![Terminal](https://i.imgur.com/O1wzkyP.png)
-4. Вставляем команду
-```bash
-bash <(wget -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/warp_generator.sh)
-```
-5. Копируем конфиг, либо скачиваем файлом по ссылке и импортируем в AmneziaWG!👍
-## Вариант 3: Replit
+## Вариант 2: Replit
 1. Тыкаем сюда: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/ImMALWARE/bash-warp-generator)
 2. Создаём аккаунт
 3. Нажимаем кнопку Run вверху

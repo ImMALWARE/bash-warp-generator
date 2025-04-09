@@ -1,8 +1,15 @@
+run = "bash warp_generator.sh"
 entrypoint = "warp_generator.sh"
 modules = ["bash"]
 
+hidden = [".config"]
+
 [nix]
 channel = "stable-24_05"
+
+[languages.bash]
+pattern = "**/*.sh"
+syntax = "bash"
 
 [deployment]
 run = ["bash", "warp_generator.sh"]

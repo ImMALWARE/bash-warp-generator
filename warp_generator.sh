@@ -4,7 +4,7 @@ clear
 mkdir -p ~/.cloudshell && touch ~/.cloudshell/no-apt-get-warning # Для Google Cloud Shell, но лучше там не выполнять
 echo "Установка зависимостей..."
 apt update -y && apt install sudo -y # Для Aeza Terminator, там sudo не установлен по умолчанию
-sudo apt-get update -y --fix-missing && sudo apt-get install wireguard-tools jq wget -y --fix-missing # Update второй раз, если sudo установлен и обязателен (в строке выше не сработал)
+sudo apt-get update -y --fix-missing && sudo apt-get install wireguard-tools jq wget qrencode -y --fix-missing # Update второй раз, если sudo установлен и обязателен (в строке выше не сработал)
 
 priv="${1:-$(wg genkey)}"
 pub="${2:-$(echo "${priv}" | wg pubkey)}"
@@ -46,12 +46,18 @@ AllowedIPs = 0.0.0.0/0, ::/0
 Endpoint = 188.114.97.66:3138
 EOM
 )
+origin_conf=$(echo "$conf" | sed '3,12d')
 
 echo -e "\n\n\n"
 [ -t 1 ] && echo "########## НАЧАЛО КОНФИГА ##########"
 echo "${conf}"
 [ -t 1 ] && echo "########### КОНЕЦ КОНФИГА ###########"
 
+echo -e "\nОтсканируйте QR код конфигурации с помощью приложения или скачайте как файл по ссылке ниже\n\nWireGuard:\n"
+echo "$origin_conf" | qrencode -t utf8
+echo -e "\nAmneziaWG:\n"
+echo "$conf" | qrencode -t utf8
+echo -e "\n"
 conf_base64=$(echo -n "${conf}" | base64 -w 0)
 echo "Скачать конфиг файлом: https://immalware.github.io/downloader.html?filename=WARP.conf&content=${conf_base64}"
 echo -e "\n"

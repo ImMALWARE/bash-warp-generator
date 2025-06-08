@@ -1,0 +1,39 @@
+name: 'Сгенерировать конфигурацию WARP'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-config:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      TZ: 'Europe/Moscow'
+
+    steps:
+      - name: 'Клонирование репозитория'
+        uses: actions/checkout@v4
+
+      - name: 'Установка зависимостей'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends wireguard-tools jq qrencode
+
+      - name: 'Генерация конфигурации WARP'
+        id: generate
+        run: |
+          set -e
+          CONFIG_FILENAME="WARP-$(date +'%Y-%m-%d').conf"
+          echo "filename=${CONFIG_FILENAME}" >> "$GITHUB_OUTPUT"
+          sudo bash warp_generator.sh > temp_warp.conf 2> warp_error.log
+          sed -n '/^\[Interface\]/,/^Endpoint/p' temp_warp.conf > "${CONFIG_FILENAME}"
+          rm temp_warp.conf
+
+      - name: 'Загрузка конфигурации как артефакта'
+        uses: actions/upload-artifact@v4
+        with:
+          name: warp-config
+          path: ${{ steps.generate.outputs.filename }}
+          if-no-files-found: error
+          retention-days: 7

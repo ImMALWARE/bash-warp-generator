@@ -12,13 +12,23 @@ bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-w
 ```
 4. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaWG!👍
 
-## Вариант 2: Replit
+## Вариант 2: pad.ws
+1. Заходим на https://pad.ws
+2. Continue with Google
+3. В окне Dashboard, если будет кнопка Start, нажмите на неё
+4. Terminal
+5. Вставляем команду:
+```bash
+bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/warp_generator.sh)
+```
+
+## Вариант 3: Replit
 1. Тыкаем сюда: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/ImMALWARE/bash-warp-generator)
 2. Создаём аккаунт
 3. Нажимаем кнопку **`Run`** вверху
 4. После того, как конфиг сгенерируется, копируем его, либо скачиваем файлом по ссылке и импортируем в AmneziaWG!👍
 
-## Вариант 3: GitHub Codespaces
+## Вариант 4: GitHub Codespaces
 1. Переходим по ссылке: https://github.com/ImMALWARE/bash-warp-generator/codespaces
 2. Вводим учётные данные GitHub (потребуется авторизация, если вы не вошли в аккаунт)
 3. Нажимаем **`Create codespace on main`**

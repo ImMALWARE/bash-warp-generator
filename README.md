@@ -6,7 +6,7 @@
 ## Вариант 1: Aeza Terminator
 1. Заходим на https://terminator.aeza.net
 2. Выбираем **`debian`**
-3. Вставляем команду:
+3. Вставляем команду (Shift + Insert):
 ```bash
 bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/warp_generator.sh)
 ```
@@ -17,7 +17,7 @@ bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-w
 2. Continue with Google
 3. В окне Dashboard, если будет кнопка Start, нажмите на неё
 4. Terminal
-5. Вставляем команду:
+5. Вставляем команду (Shift + Insert):
 ```bash
 bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/warp_generator.sh)
 ```
@@ -34,7 +34,7 @@ bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-w
 2. Вводим учётные данные GitHub (потребуется авторизация, если вы не вошли в аккаунт)
 3. Нажимаем **`Create codespace on main`**
 4. Дожидаемся, пока среда загрузится (может занять 10–30 секунд)
-5. В терминале (внизу экрана) вводим команду:
+5. В терминале (внизу экрана) вводим команду (Shift + Insert):
 ```bash
 bash warp_generator.sh
 ```

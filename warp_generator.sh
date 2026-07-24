@@ -122,3 +122,9 @@ echo "Скачать конфиг файлом: https://immalware.vercel.app/dow
 echo "Импортируйте конфиг в приложение AmneziaVPN! Приложение AmneziaWG не поддерживает этот формат!"
 echo -e "\n"
 echo "Что-то не получилось? Есть вопросы? Пишите в чат: https://t.me/immalware_chat"
+
+# --- Блок логики для GitHub Codespaces ---
+if [ "$CODESPACES" = "true" ]; then
+    echo "${conf}" > warp.conf
+    echo "[INFO] Обнаружена среда GitHub Codespaces. Конфиг сохранен в 'warp.conf'"
+fi

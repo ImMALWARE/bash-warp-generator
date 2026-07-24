@@ -7,6 +7,7 @@
     pkgs.nodePackages.bash-language-server
     pkgs.coreutils
     pkgs.curl
+    pkgs.openssl
     pkgs.qrencode
   ];
 }

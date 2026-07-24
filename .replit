@@ -1,4 +1,4 @@
-run = "bash warp_generator.sh"
+run = ["bash", "-lc", "echo 'Выберите скрипт:'; echo '1) WARP для AmneziaWG'; echo '2) WARP MASQUE для Mihomo/Clash'; read -r -p 'Введите 1 или 2: ' choice; if [ \"$choice\" = \"2\" ]; then bash masque_generator.sh; else bash warp_generator.sh; fi"]
 entrypoint = "warp_generator.sh"
 modules = ["bash"]
 
@@ -12,5 +12,5 @@ pattern = "**/*.sh"
 syntax = "bash"
 
 [deployment]
-run = ["bash", "warp_generator.sh"]
+run = ["bash", "-lc", "bash ${SCRIPT:-warp_generator.sh}"]
 deploymentTarget = "cloudrun"

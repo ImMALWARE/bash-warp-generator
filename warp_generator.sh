@@ -4,8 +4,6 @@ clear
 if [ -d "/home/runner" ] || [ ! -z "$REPL_ID" ]; then
     echo "[INFO] Запуск в Replit — пропускаем установку системных пакетов"
 else
-    echo "[INFO] Не Replit — выполняем установку зависимостей"
-
     mkdir -p ~/.cloudshell && touch ~/.cloudshell/no-apt-get-warning
     apt update -y && apt install sudo -y
     out="$(sudo apt-get update -y --fix-missing 2>&1)" || {
@@ -119,12 +117,16 @@ echo "${conf}"
 echo -e "\n"
 conf_base64=$(echo -n "${conf}" | base64 -w 0)
 echo "Скачать конфиг файлом: https://immalware.vercel.app/download?filename=WARP.conf&content=${conf_base64}"
-echo "Импортируйте конфиг в приложение AmneziaVPN! Приложение AmneziaWG не поддерживает этот формат!"
+echo "Импортируйте конфиг в приложение AmneziaWG или AmneziaVPN"
 echo -e "\n"
+echo "Подробный гайд тут: https://wiki.malw.link/network/vpns/warp"
 echo "Что-то не получилось? Есть вопросы? Пишите в чат: https://t.me/immalware_chat"
+echo "${conf}" > warp.conf
 
-# --- Блок логики для GitHub Codespaces ---
 if [ "$CODESPACES" = "true" ]; then
-    echo "${conf}" > warp.conf
-    echo "[INFO] Обнаружена среда GitHub Codespaces. Конфиг сохранен в 'warp.conf'"
+    echo "[INFO] Обнаружен GitHub Codespaces. Конфиг сохранен в warp.conf. В левом меню с файлами нажмите правой кнопкой на warp.conf и выберите Скачивание."
+fi
+
+if [ -d "/home/runner" ] || [ ! -z "$REPL_ID" ]; then
+    echo "[INFO] Обнаружен Replit. Конфиг сохранен в warp.conf. В правом меню нажмите File Tree, нажмите правой кнопкой на warp.conf и выберите Download."
 fi

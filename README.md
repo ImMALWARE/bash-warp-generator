@@ -1,16 +1,7 @@
 # Генератор конфигов Cloudflare WARP для AmneziaWG и Clash
 Не стоит выполнять скрипты локально, так как РКН заблокировал запросы для получения конфигурации. Вместо этого лучше запускать их на удалённых серверах. Ниже приведены несколько подходящих сервисов, которые предоставляют бесплатные временные серверы.
 ## 1. WARP для AmneziaWG
-### Вариант 1: Killercoda
-1. Перейдите на https://killercoda.com/playgrounds/scenario/ubuntu
-2. Войдите через Google
-3. Когда процесс входа закончится, отобразится терминал. Вставьте команду (Shift + Insert):
-```bash
-bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/warp_generator.sh)
-```
-4. После того как конфиг сгенерируется, скопируйте его и вставьте в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + C, затем вставьте её в адресную строку браузера. Импортируйте файл в [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) или [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
-
-### Вариант 2: Replit
+### Вариант 1: Replit
 1. Зайдите сюда: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/ImMALWARE/bash-warp-generator)
 2. Войдите или создайте аккаунт.
 3. В центральной панели с вкладками откройте новую вкладку и выберите Console.
@@ -19,7 +10,7 @@ bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-w
 6. После того как конфиг сгенерируется, он будет сохранён в `warp.conf`. В правом меню нажмите "File Tree", затем нажмите правой кнопкой мыши на `warp.conf` и выберите Download.
 Также вы можете скопировать конфиг из терминала и вставить его в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + Shift + C, затем вставьте её в адресную строку браузера. Импортируйте файл в [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) или [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
 
-### Вариант 3: GitHub Codespaces
+### Вариант 2: GitHub Codespaces
 1. Перейдите по ссылке: https://github.com/ImMALWARE/bash-warp-generator/codespaces
 2. Войдите в GitHub.
 3. Нажмите **`Create codespace on main`**
@@ -32,16 +23,7 @@ bash warp_generator.sh
 Также вы можете скопировать конфиг из терминала и вставить его в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + Shift + C, затем вставьте её в адресную строку браузера. Импортируйте файл в [AmneziaWG](https://wiki.malw.link/network/vpns/amneziawg) или [AmneziaVPN](https://wiki.malw.link/network/vpns/amneziavpn).
 
 ## 2. WARP MASQUE для Clash
-### Вариант 1: Killercoda
-1. Перейдите на https://killercoda.com/playgrounds/scenario/ubuntu
-2. Войдите через Google
-3. Когда процесс входа закончится, отобразится терминал. Вставьте команду (Shift + Insert):
-```bash
-bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-warp-generator/main/masque_generator.sh)
-```
-4. После того как конфиг сгенерируется, скопируйте его и вставьте в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + C, затем вставьте её в адресную строку браузера. О подключении рассказано ниже.
-
-### Вариант 2: Replit
+### Вариант 1: Replit
 1. Зайдите сюда: [![Run on Repl.it](https://repl.it/badge/github/replit/upm)](https://replit.com/new/github/ImMALWARE/bash-warp-generator)
 2. Войдите или создайте аккаунт.
 3. В правой панели с вкладками откройте новую вкладку и выберите Console.
@@ -50,7 +32,7 @@ bash <(wget --inet4-only -qO- https://raw.githubusercontent.com/ImMALWARE/bash-w
 6. После того как конфиг сгенерируется, он будет сохранён в `warp-masque-clash.yaml`. В правом меню нажмите "File Tree", затем нажмите правой кнопкой мыши на `warp-masque-clash.yaml` и выберите Download.
 Также вы можете скопировать конфиг из терминала и вставить его в новый текстовый файл. Либо, чтобы скачать его файлом, выделите ссылку и нажмите Ctrl + Shift + C, затем вставьте её в адресную строку браузера. О подключении рассказано ниже.
 
-### Вариант 3: GitHub Codespaces
+### Вариант 2: GitHub Codespaces
 1. Перейдите по ссылке: https://github.com/ImMALWARE/bash-warp-generator/codespaces
 2. Войдите в GitHub.
 3. Нажмите **`Create codespace on main`**
